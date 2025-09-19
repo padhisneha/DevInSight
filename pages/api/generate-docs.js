@@ -1,9 +1,9 @@
-import { Octokit } from 'octokit';
-import { getRepositoryInfo, getAllFiles, getFileContent } from '../../lib/github';
-import { generateEmbedding } from '../../lib/embeddings';
-import { querySimilarChunks, getCollection } from '../../lib/chromadb';
-import { getRepositoryId } from '../../lib/utils';
 import { Groq } from 'groq-sdk';
+import { Octokit } from 'octokit';
+import { getCollection, querySimilarChunks } from '../../lib/chromadb';
+import { generateEmbedding } from '../../lib/embeddings';
+import { getRepositoryInfo } from '../../lib/github';
+import { getRepositoryId } from '../../lib/utils';
 
 
 const groq = new Groq({
@@ -16,7 +16,7 @@ const octokit = new Octokit({
 });
 
 
-const MODEL = 'llama3-8b-8192';
+const MODEL = 'llama-3.1-8b-instant';
 const MAX_TOKENS = 4096;
 
 
